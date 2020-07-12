@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import models.Task;
 import utils.DBUtil;
 
 /**
@@ -36,7 +36,7 @@ public class IndexServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		EntityManager em = DBUtil.createEntityManager();
 
-        List<Message> tasks = em.createNamedQuery("getAllMessages", Message.class)
+        List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class)
                                    .getResultList();
         response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 
